@@ -2,9 +2,34 @@
   text-align: center;
 }
 
+.activeLink {
+  color: lightyellow;
+  text-decoration: none;
+}
+
+
+
+/* достаточно сделать так снизу */
+/* .active {
+  color: lightyellow;
+  text-decoration: none;
+} */
+/* класс active применяется автоматически для активный ссылок
+это особенность reactrouter т.е. данный класс добавляется автоматически
+для ссылки */
+
 a {
   color: lightblue;
   font-size: 35px;
+}
+
+nav a {
+  margin: 1.5rem;
+}
+
+nav {
+  background-color: darkslategray;
+  padding: .5rem;
 }
 
 h1 {

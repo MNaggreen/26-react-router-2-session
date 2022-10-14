@@ -11,16 +11,16 @@ const About = () => {
     {/* вместо этого мы используем компонент
     link который используется для
     всех внутренних ссылок*/}
-    <Link /* href заменяем на to*/ 
+    {/* <Link href заменяем на to 
     to="/">Go to Home</Link>
-    <br/>
+    <br/> */}
     {/* Благодаря link все 
     изменяется мгновенно никаких 
     запросов и переходо не осуществляется*/}
 
-    <Link /* href заменяем на to*/ 
-    to="/contacts">Go to Contacts</Link>
-    </div>
+    {/* <Link href заменяем на to 
+    to="/contacts">Go to Contacts</Link>*/}
+    </div> 
     }
 
 export default About

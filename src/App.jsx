@@ -4,12 +4,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 /* Route работает только вместе с Routes и 
 не может быть отрендерен вне него */
 
+import MainLayout from './layouts/MainLayout'
 import Home from './components/Home'
 import Contacts from './components/Contacts'
 import About from './components/About'
 import NotFound from './components/NotFound'
 /* импорт наших компонентов для дальнейшего использования
 как свойства Route */
+
+import Menu from './components/Menu'
 
 import './App.css'
 
@@ -29,7 +32,7 @@ function App() {
         все что дает BrowserRouter*/}
       <div className="App">
         <Routes>
-          <Route path="*" element={<NotFound />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
           {/* это наш маршрут по умолчанию
           т.е. если мы ввели какую нибудь страницу
           отсутсвующую снизу, нам покажет
@@ -38,7 +41,24 @@ function App() {
           не саблюдать порядок страниц как
           мы сделали снизу*/}
 
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={< MainLayout/>}> {/* Home */ }
+            <Route index={true} element={<Home />}/>
+            {/* т.к. у нас уже сделат Rout
+            с path '/'  мы ставим idndex вместо
+            то мы добавляем дочерний
+            элемнт со свойство в котором
+            сделан наш Home и index true можно
+            просто index дабавить
+            */}
+            <Route path="*" element={<NotFound />} />
+            <Route path="about" element={<About />} />
+            <Route path="contacts" element={<Contacts />} />
+          </Route>
+          {/* Здесь мы используем вложенные компоненты */}
+
+
+
+
           {/* </Route> */}
           {/* Напрямую теги нельзя размещать в Route 
           но можно это сделать добавив как свойство со
@@ -49,8 +69,8 @@ function App() {
           домашняя страница котора идет сразу после
           название.ru/ */}
 
-          <Route path="about" element={<About />} />
-          <Route path="contacts" element={<Contacts />} />
+          {/* <Route path="about" element={<About />} />
+          <Route path="contacts" element={<Contacts />} /> */}
           {/* Теперь в зависимости от изменения страницы
           в браузере у нас будут отобрааться разные
           страницы, например если напишем
