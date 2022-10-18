@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from 'react-router-dom'
 import Menu from '../components/Menu'
 /* самый главный наш файл 
 тут мы монтируем наше меню которой
@@ -7,13 +7,13 @@ import Menu from '../components/Menu'
 это самая главно я страница сайта*/
 
 const MainLayout = () => {
-    return <>
-        <Menu />
-        /* сюда можно добавить
-        компонент который необходимо
-        вынести за рамки */
-        <Outlet />
-        </>
+  return (
+    <>
+      <Menu />
+      /* сюда можно добавить компонент который необходимо вынести за рамки */
+      <Outlet />
+    </>
+  )
 }
 
 /* Это наша главная страница

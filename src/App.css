@@ -7,16 +7,23 @@
   text-decoration: none;
 }
 
-
-
 /* достаточно сделать так снизу */
-/* .active {
+.active {
   color: lightyellow;
   text-decoration: none;
-} */
+}
 /* класс active применяется автоматически для активный ссылок
 это особенность reactrouter т.е. данный класс добавляется автоматически
 для ссылки */
+
+.courseLink {
+  font-size: 2.5rem;
+  text-decoration: none;
+}
+
+.courseLink:hover {
+  text-decoration: underline;
+}
 
 a {
   color: lightblue;
@@ -29,7 +36,7 @@ nav a {
 
 nav {
   background-color: darkslategray;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 h1 {

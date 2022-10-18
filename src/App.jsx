@@ -11,11 +11,11 @@ import About from './components/About'
 import NotFound from './components/NotFound'
 /* импорт наших компонентов для дальнейшего использования
 как свойства Route */
-
+import Courses from './components/Courses'
+import SingleCourse from './components/SingleCourse'
 import Menu from './components/Menu'
 
 import './App.css'
-
 
 function App() {
   return (
@@ -41,8 +41,10 @@ function App() {
           не саблюдать порядок страниц как
           мы сделали снизу*/}
 
-          <Route path="/" element={< MainLayout/>}> {/* Home */ }
-            <Route index={true} element={<Home />}/>
+          <Route path="/" element={<MainLayout />}>
+            {' '}
+            {/* Home */}
+            <Route index={true} element={<Home />} />
             {/* т.к. у нас уже сделат Rout
             с path '/'  мы ставим idndex вместо
             то мы добавляем дочерний
@@ -50,14 +52,21 @@ function App() {
             сделан наш Home и index true можно
             просто index дабавить
             */}
-            <Route path="*" element={<NotFound />} />
             <Route path="about" element={<About />} />
             <Route path="contacts" element={<Contacts />} />
+            <Route path="courses" element={<Courses />} />
+            <Route path="courses/:courseSlug" element={<SIngleCourse />} />
+            {/* слэш и двоеточние в свойстве path
+            значат что страница подет называется
+            так как указано свойство slug из нашего массива
+             т.е. если мы впишем courses/react 
+             то нам покажет страницу курса react
+             это и есть наша singlecourse
+             страница которая будет показываться
+              на странице courses*/}
+            <Route path="*" element={<NotFound />} />
           </Route>
           {/* Здесь мы используем вложенные компоненты */}
-
-
-
 
           {/* </Route> */}
           {/* Напрямую теги нельзя размещать в Route 
@@ -77,8 +86,6 @@ function App() {
           localhost: 3000/about то нам покажет страницу
           с about и т. д. остальные страницы 
           согласно тексту будут отображаться*/}
-
-          
         </Routes>
       </div>
     </BrowserRouter>
