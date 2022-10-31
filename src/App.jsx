@@ -1,3 +1,6 @@
+/*  ДЛЯ ДАННОГО ПРОЕКТА НАМ ПОТРЕБУЕТСЯ СКАЧАТЬ
+NPM ПАКЕТЫ REACT-ROUTER-DOM И QUERY-STRING*/
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 /* импорт BrowserRouter 
 для дальнейшего его использования */

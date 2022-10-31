@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams, useLocation } from 'react-router-dom'
 /* вызов функции похожей на useState */
 import courses from '../data/courses'
 import NotFound from './NotFound'
@@ -14,6 +14,20 @@ const SingleCourse = () => {
 const navigate = useNavigate()
 /* функция которая позволяет сменить локацию
   перенаправить пользователя на другую страницу */
+
+const location = useLocation()
+/* Данная переменная вернет обьект
+с парамнтрами какkey pathname search
+локацию пути согласно 
+адресной строки и покажет такие переменные
+ка а */
+
+/* С ПОМОЩЬЮ ?SORT=ID 
+НАМ МОЖНО ПОЛЬЗОВТАЬСЯ ПОИСКОМ */
+
+/* также чтобы полезоваться поиском через useLocation нам нужно
+установить npm пакет query string
+который пребразует строку в обект java script */
 
 const course = courses.find((course) => course.slug === params.courseSlug)
 /* если в списке course.slug равен params.course.slug 
@@ -31,7 +45,7 @@ useEffect(() => {
   if (!course) {
     navigate('..', { relative: 'path' })
   }
-}, [course])
+}, [course, navigate])
 
 /* если курс не найден мы попадаем на страницу выше
     '..' согласно данному пути relative: 'path' 

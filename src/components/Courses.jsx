@@ -1,7 +1,30 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import queryString from 'query-string'
+/* чтобы это импортировать нужно установить
+пакет query string */
+import { useState } from 'react'
 import courses from '../data/courses'
 
 const Courses = () => {
+  const location = useLocation()
+  const query = queryString.parse(location.search)
+  /* тут мы берем параметр, из обекта location, полученный из строки 
+  котрую пользовать добавил в конце алреса ?sort=id
+  и превращает её в обычную строку */
+  /* const query вернет {sort: id}*/
+  console.log(location)
+  /* проверяем что пользователь добавил ли пользовать
+   ?sort=id можно так ?sort=id&filter=react
+   вернет {sort: id, filter: react}*/
+
+  const [sortKey, setSortKey] = useState(query.sort)
+  /* здесь мы получаем значение свойстава sort обекта query
+  а именно просто 'id'  или же Undefined если строки запроса нет*/
+
+  const [sortedCourses, setSortedCourses] = useState()
+  /* тут будет уже отсортированный массив
+  объектов согласно нашему запросу */
+
   return (
     <>
       <h1>Courses</h1>
