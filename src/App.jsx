@@ -58,7 +58,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="contacts" element={<Contacts />} />
             <Route path="courses" element={<Courses />} />
-            <Route path="courses/:courseSlug" element={<SIngleCourse />} />
+            <Route path="courses/:courseSlug" element={<SingleCourse />} />
             {/* слэш и двоеточние в свойстве path
             значат что страница подет называется
             так как указано свойство slug из нашего массива
